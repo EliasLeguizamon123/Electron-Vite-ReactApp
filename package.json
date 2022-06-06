@@ -1,0 +1,68 @@
+{
+  "name": "testeb",
+  "author": {
+    "name": "Elias Leguizamon",
+    "email": "test@test.com"
+  },
+  "description": "This is a test app",
+  "private": false,
+  "version": "0.0.1",
+  "homepage": "./",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "vite": "^2.9.9",
+    "electron": "18.2.0"
+  },
+  "build": {
+    "appId": "testWeb",
+    "includeSubNodeModules": "true",
+    "icon": ".dist/assets/favicon.17e50649.svg",
+    "directories": {
+      "output": "dist"
+    },
+    "extraFiles": [
+      "./dist/assets/**/"
+    ],
+    "files": [
+      "./dist/**/",
+      "main.js",
+      "preload.js"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  }
+}
